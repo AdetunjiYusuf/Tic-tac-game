@@ -82,3 +82,23 @@ function restartGame() {
 
 // Initialize
 statusDisplay.textContent = "Player X's Turn";
+// Add clicking sound
+const clickSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3');
+
+function handleCellClick(event) {
+    clickSound.play(); // Add this line
+    // ... rest of your code
+}
+// Add to game.js
+let scores = {X: 0, O: 0, draws: 0};
+
+function updateScore(winner) {
+    if (winner === 'X') scores.X++;
+    if (winner === 'O') scores.O++;
+    if (winner === 'draw') scores.draws++;
+    
+    // Display scores
+    document.getElementById('scoreDisplay').innerHTML = `
+        X: ${scores.X} | O: ${scores.O} | Draws: ${scores.draws}
+    `;
+}
