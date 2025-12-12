@@ -6,7 +6,50 @@
 </head>
 <body>
     <h1>Tic Tac Toe</h1>
-    
+
+    <button id="openSetupBtn" class="open-setup">Open Setup</button>
+
+    <!-- Setup Panel -->
+    <div id="setup" class="panel hidden">
+        <h2>Choose Mode</h2>
+        <div class="mode-toggle">
+            <input type="radio" id="modeSingle" name="mode" value="single" checked>
+            <label for="modeSingle" class="mode-label">Single Player</label>
+
+            <input type="radio" id="modeMulti" name="mode" value="multi">
+            <label for="modeMulti" class="mode-label">Multiplayer</label>
+        </div>
+
+        <div id="namesSingle" class="names">
+            <label>Your name: <input type="text" id="player1Name" placeholder="Player 1"></label>
+        </div>
+
+        <div id="namesMulti" class="names hidden">
+            <label>Player 1: <input type="text" id="player1NameMulti" placeholder="Player 1"></label>
+            <label>Player 2: <input type="text" id="player2NameMulti" placeholder="Player 2"></label>
+        </div>
+
+        <button id="startMatchBtn">Start Match</button>
+    </div>
+
+    <!-- Scoreboard -->
+    <div id="scoreboard" class="panel hidden">
+        <div class="score-row">
+            <div class="player-info">
+                <div id="p1Label" class="player-label">Player 1</div>
+                <div id="p1Score" class="player-score">0</div>
+            </div>
+            <div class="match-info">
+                <div id="roundLabel">Round 1 / 7</div>
+                <div id="matchStatus" class="match-status"></div>
+            </div>
+            <div class="player-info">
+                <div id="p2Label" class="player-label">Player 2</div>
+                <div id="p2Score" class="player-score">0</div>
+            </div>
+        </div>
+    </div>
+
     <!-- Game Board -->
     <div class="board">
         <div class="cell" data-cell-index="0"></div>
@@ -19,13 +62,17 @@
         <div class="cell" data-cell-index="7"></div>
         <div class="cell" data-cell-index="8"></div>
     </div>
-    
+
     <!-- Game Status -->
-    <div class="status">Player X's Turn</div>
-    
-    <!-- Restart Button -->
-    <button onclick="restartGame()">Restart Game</button>
-    
+    <div class="status">Waiting to start match</div>
+
+    <!-- Controls -->
+    <div class="controls">
+        <button id="nextRoundBtn" class="hidden">Next Round</button>
+        <button id="restartMatchBtn" class="hidden">Restart Match</button>
+        <button id="exitMatchBtn" class="hidden">Exit Match</button>
+    </div>
+
     <script src="game.js"></script>
 </body>
 </html>
